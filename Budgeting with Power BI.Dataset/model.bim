@@ -1,0 +1,995 @@
+{
+  "compatibilityLevel": 1567,
+  "model": {
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.126.927.0 (24.02)"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Customer\",\"Date\",\"Product\",\"Product Category\",\"Product Subcategory\",\"Sales\",\"Budget\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "DynamicImprovement": "HighConfidence",
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "expressions": [
+      {
+        "name": "Product Category",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "expression": [
+          "let",
+          "    Source = Sql.Database(\"Demo\", \"ContosoRetailDW\"),",
+          "    #\"DaxBook_Product Category\" = Source{[Schema=\"DaxBook\",Item=\"Product Category\"]}[Data]",
+          "in",
+          "    #\"DaxBook_Product Category\""
+        ],
+        "kind": "m",
+        "lineageTag": "8c82bf09-f496-4625-be97-58849d2c72ad"
+      },
+      {
+        "name": "Product Subcategory",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "expression": [
+          "let",
+          "    Source = Sql.Database(\"Demo\", \"ContosoRetailDW\"),",
+          "    #\"DaxBook_Product Subcategory\" = Source{[Schema=\"DaxBook\",Item=\"Product Subcategory\"]}[Data]",
+          "in",
+          "    #\"DaxBook_Product Subcategory\""
+        ],
+        "kind": "m",
+        "lineageTag": "0bb1adcc-f77a-4f82-bca4-986681b96089"
+      }
+    ],
+    "relationships": [
+      {
+        "name": "ab1aeb10-6713-4f0f-9473-659c672a8d57",
+        "fromColumn": "ProductKey",
+        "fromTable": "Sales",
+        "toColumn": "ProductKey",
+        "toTable": "Product"
+      },
+      {
+        "name": "9ce5317f-f1ca-4fe2-b8ee-783b3b45e387",
+        "fromColumn": "OrderDateKey",
+        "fromTable": "Sales",
+        "toColumn": "DateKey",
+        "toTable": "Date"
+      },
+      {
+        "name": "26732aa1-2f08-4cd1-b5a4-41a1f4b7312c",
+        "fromColumn": "CustomerKey",
+        "fromTable": "Sales",
+        "toColumn": "CustomerKey",
+        "toTable": "Customer"
+      },
+      {
+        "name": "52ae3e48-1033-4f17-a1b6-289b0be38fff",
+        "crossFilteringBehavior": "bothDirections",
+        "fromColumn": "Brand",
+        "fromTable": "Product",
+        "toCardinality": "many",
+        "toColumn": "Brand",
+        "toTable": "Budget"
+      }
+    ],
+    "sourceQueryCulture": "it-IT",
+    "tables": [
+      {
+        "name": "Customer",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "SELECT * FROM [Customer]"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "63"
+          },
+          {
+            "name": "IsQueryEditorUsed",
+            "value": "False"
+          },
+          {
+            "name": "QueryEditorSerialization"
+          },
+          {
+            "name": "TableWidgetSerialization"
+          },
+          {
+            "name": "DataMarketWebBaseUrl"
+          },
+          {
+            "name": "DataMarketWebQueryUrl"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "CustomerKey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "int64",
+            "isNullable": false,
+            "lineageTag": "0ef54805-ee22-4499-8864-6288ff37b202",
+            "sourceColumn": "CustomerKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Customer Code",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "21d1b27d-8692-45b1-8c31-32cd5122ec69",
+            "sourceColumn": "Customer Code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8a47eea1-0875-4b64-a274-4e7574623363",
+            "sourceColumn": "Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Education",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5edf3765-5623-415e-b5f9-6230c6bb902d",
+            "sourceColumn": "Education",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Occupation",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0da0a208-045b-4b0f-a811-a34ffe8f42df",
+            "sourceColumn": "Occupation",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Continent",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3fec18d7-8b36-42d9-9d4f-065b79c315ac",
+            "sourceColumn": "Continent",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "City",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3baa0928-5cc8-4fd4-818c-988c9649c1a9",
+            "sourceColumn": "City",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "State",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "cdbe0af8-84e1-4efb-b9b0-76fa304dc87a",
+            "sourceColumn": "State",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CountryRegion",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "522e7330-5817-4a43-90fb-6110947a93d4",
+            "sourceColumn": "CountryRegion",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "352dfc62-5d3f-423a-8d09-85dcdae8a1ad",
+        "partitions": [
+          {
+            "name": "DaxBook Customer",
+            "annotations": [
+              {
+                "name": "IsQueryEditorUsed",
+                "value": "False"
+              },
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ],
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"Demo\", \"ContosoRetailDW\"),",
+                "    DaxBook_Customer = Source{[Schema=\"DaxBook\",Item=\"Customer\"]}[Data],",
+                "    #\"Removed Columns\" = Table.RemoveColumns(DaxBook_Customer,{\"Phone\", \"Address Line 2\", \"Title\", \"GeographyKey\", \"Birth Date\", \"Marital Status\", \"Cars Owned\", \"Children At Home\", \"Total Children\", \"Address Line 1\", \"Date First Purchase\", \"Customer Type\", \"Company Name\", \"House Ownership\", \"Yearly Income\", \"Gender\"}),",
+                "    #\"Filtered Rows\" = Table.SelectRows(#\"Removed Columns\", each [CountryRegion] = \"United States\" or [CountryRegion] = \"Germany\" or [CountryRegion] = \"China\")",
+                "in",
+                "    #\"Filtered Rows\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Date",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "SELECT * FROM [Date]"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "290"
+          },
+          {
+            "name": "IsQueryEditorUsed",
+            "value": "False"
+          },
+          {
+            "name": "QueryEditorSerialization"
+          },
+          {
+            "name": "TableWidgetSerialization"
+          },
+          {
+            "name": "DataMarketWebBaseUrl"
+          },
+          {
+            "name": "DataMarketWebQueryUrl"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "isNullable": false,
+            "lineageTag": "ee339605-e664-4a32-933d-ff89a93c1663",
+            "sourceColumn": "Date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DateKey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "isHidden": true,
+            "isNullable": false,
+            "lineageTag": "0fe424da-f54e-454a-b987-3fe71ef6850a",
+            "sourceColumn": "DateKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Calendar Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b647d4f4-f36d-4def-9eb8-4d3c39c987aa",
+            "sourceColumn": "Calendar Year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month Number",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "isHidden": true,
+            "lineageTag": "cc9692a7-13f9-45b3-8d8f-2f1d7b05493d",
+            "sourceColumn": "Month Number",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ffdcc2e2-6130-4a6e-8a91-be02a3453387",
+            "sortByColumn": "Month Number",
+            "sourceColumn": "Month",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "3ee540b6-ac3c-4d64-9a2a-c539e7770187",
+        "partitions": [
+          {
+            "name": "DaxBook Date",
+            "annotations": [
+              {
+                "name": "IsQueryEditorUsed",
+                "value": "False"
+              },
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ],
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"Demo\", \"ContosoRetailDW\"),",
+                "    DaxBook_Date = Source{[Schema=\"DaxBook\",Item=\"Date\"]}[Data],",
+                "    #\"Removed Columns\" = Table.RemoveColumns(DaxBook_Date,{\"Calendar Year Number\", \"Calendar Year Quarter Number\", \"Calendar Year Quarter\", \"Calendar Year Month Number\", \"Calendar Year Month\", \"Day of Week Number\", \"Day of Week\", \"Fiscal Year Number\", \"Fiscal Year\", \"Fiscal Quarter Number\", \"Fiscal Quarter\", \"Fiscal Year Quarter Number\", \"Fiscal Year Quarter\", \"Fiscal Month Number\", \"Fiscal Month\", \"Working Day\", \"Is Holiday\", \"Holiday Name\", \"Europe Season\", \"North America Season\", \"Asia Season\"})",
+                "in",
+                "    #\"Removed Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Product",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "SELECT * FROM [Product]"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "525"
+          },
+          {
+            "name": "IsQueryEditorUsed",
+            "value": "False"
+          },
+          {
+            "name": "QueryEditorSerialization"
+          },
+          {
+            "name": "TableWidgetSerialization"
+          },
+          {
+            "name": "DataMarketWebBaseUrl"
+          },
+          {
+            "name": "DataMarketWebQueryUrl"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "ProductKey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "isHidden": true,
+            "isNullable": false,
+            "lineageTag": "de961e2e-0e5a-485f-8857-ef1a8d5efd61",
+            "sourceColumn": "ProductKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "796772e1-a685-42a7-9044-b05c968cdbce",
+            "sourceColumn": "Product Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Brand",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7e1538a3-b484-40a8-9ede-e5d239da5a5b",
+            "sourceColumn": "Brand",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Color",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "649931ac-b1b2-4de1-bd81-4595772c2013",
+            "sourceColumn": "Color",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Subcategory",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3f1ca873-6b8d-43d8-a643-bcf1d3ee25cc",
+            "sourceColumn": "Subcategory",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Category",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "86d8dbc8-9060-4385-aad5-9a40762a0459",
+            "sourceColumn": "Category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Unit Cost",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "decimal",
+            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+            "isHidden": true,
+            "lineageTag": "b50924ae-558e-4fd8-bf31-ab71af223a55",
+            "sourceColumn": "Unit Cost",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "78dda100-eaec-48c2-b926-5d359912308f",
+        "partitions": [
+          {
+            "name": "DaxBook Product",
+            "annotations": [
+              {
+                "name": "IsQueryEditorUsed",
+                "value": "False"
+              },
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ],
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"Demo\", \"ContosoRetailDW\"),",
+                "    DaxBook_Product = Source{[Schema=\"DaxBook\",Item=\"Product\"]}[Data],",
+                "    #\"Removed Columns\" = Table.RemoveColumns(DaxBook_Product,{\"Manufacturer\", \"Class\", \"Style\", \"Size\", \"Weight\", \"Weight Unit Measure\", \"Stock Type Code\", \"Stock Type\", \"Status\", \"Available Date\", \"Product Description\"}),",
+                "    #\"Merged Queries\" = Table.NestedJoin(#\"Removed Columns\",{\"ProductSubcategoryKey\"},#\"Product Subcategory\",{\"ProductSubcategoryKey\"},\"NewColumn\",JoinKind.LeftOuter),",
+                "    #\"Expanded NewColumn\" = Table.ExpandTableColumn(#\"Merged Queries\", \"NewColumn\", {\"Subcategory\", \"ProductCategoryKey\"}, {\"Subcategory\", \"ProductCategoryKey\"}),",
+                "    #\"Merged Queries1\" = Table.NestedJoin(#\"Expanded NewColumn\",{\"ProductCategoryKey\"},#\"Product Category\",{\"ProductCategoryKey\"},\"NewColumn\",JoinKind.LeftOuter),",
+                "    #\"Expanded NewColumn1\" = Table.ExpandTableColumn(#\"Merged Queries1\", \"NewColumn\", {\"Category\"}, {\"Category\"}),",
+                "    #\"Removed Columns1\" = Table.RemoveColumns(#\"Expanded NewColumn1\",{\"ProductCategoryKey\", \"ProductSubcategoryKey\", \"Product Code\", \"Unit Price\"})",
+                "in",
+                "    #\"Removed Columns1\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Sales",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "SELECT * FROM [Sales]"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "905"
+          },
+          {
+            "name": "IsQueryEditorUsed",
+            "value": "False"
+          },
+          {
+            "name": "QueryEditorSerialization"
+          },
+          {
+            "name": "TableWidgetSerialization"
+          },
+          {
+            "name": "DataMarketWebBaseUrl"
+          },
+          {
+            "name": "DataMarketWebQueryUrl"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "ProductKey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "isHidden": true,
+            "lineageTag": "d0ae10d0-9b66-4aa2-b701-e8f1d9b87fb8",
+            "sourceColumn": "ProductKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CustomerKey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "isHidden": true,
+            "lineageTag": "c01a301f-bfb8-4c1f-9379-4832461c7aa9",
+            "sourceColumn": "CustomerKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "OrderDateKey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "isHidden": true,
+            "lineageTag": "b4fc1586-35d5-414f-9ac8-7ec63eafc859",
+            "sourceColumn": "OrderDateKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Quantity",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "isHidden": true,
+            "lineageTag": "107ec742-377c-46ce-88ab-9a7a7cc35072",
+            "sourceColumn": "Quantity",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Net Price",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "decimal",
+            "isHidden": true,
+            "lineageTag": "a181c4ec-d9f4-4975-a5a7-163f34d556c3",
+            "sourceColumn": "Net Price",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "ace8409a-fa42-4054-9ec0-cea4122551cc",
+        "measures": [
+          {
+            "name": "Sales Amount",
+            "expression": "SUMX ( Sales, Sales[Quantity] * Sales[Net Price] )",
+            "formatString": "#,0.00",
+            "lineageTag": "0e30ee06-60bf-4a73-b923-1885c3ad3ca8"
+          },
+          {
+            "name": "Sales in 2009",
+            "expression": "CALCULATE( [Sales Amount], 'Date'[Calendar Year] = \"CY 2009\" )",
+            "formatString": "#,0.00",
+            "lineageTag": "9dfe2a43-85cc-40e7-b54e-daf9d92ebac4"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DaxBook Sales",
+            "annotations": [
+              {
+                "name": "IsQueryEditorUsed",
+                "value": "False"
+              },
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ],
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"Demo\", \"ContosoRetailDW\"),",
+                "    DaxBook_Sales = Source{[Schema=\"DaxBook\",Item=\"Sales\"]}[Data],",
+                "    #\"Removed Columns\" = Table.RemoveColumns(DaxBook_Sales,{\"CurrencyKey\", \"Order Date\", \"Due Date\", \"Delivery Date\", \"Order Number\", \"Order Line Number\", \"PromotionKey\", \"StoreKey\"}),",
+                "    #\"Merged Queries\" = Table.NestedJoin(#\"Removed Columns\", {\"CustomerKey\"}, Customer, {\"CustomerKey\"}, \"NewColumn\", JoinKind.Inner),",
+                "    #\"Removed Columns1\" = Table.RemoveColumns(#\"Merged Queries\",{\"NewColumn\", \"DueDateKey\", \"DeliveryDateKey\", \"Unit Discount\", \"Unit Cost\", \"Unit Price\", \"OnlineSalesKey\"})",
+                "in",
+                "    #\"Removed Columns1\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Budget",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "CountryRegion",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "059a1aaf-8398-4240-bb14-d41c5b42bc4e",
+            "sourceColumn": "CountryRegion",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Brand",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e98b8bbf-c716-4e8d-993d-ac53a01e2723",
+            "sourceColumn": "Brand",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Scenario",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e9e2ab0a-00d8-43b7-aa82-9c6dee12504f",
+            "sourceColumn": "Scenario",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Budget",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0.00",
+            "lineageTag": "717c8069-c4ac-42e9-80aa-f2b487cfefa0",
+            "sourceColumn": "Budget",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "b310047a-1e95-4485-86e4-ca9dfb8c0c6b",
+        "measures": [
+          {
+            "name": "SumOfBudget",
+            "expression": "SUM ( Budget[Budget] )",
+            "formatString": "#,0.00",
+            "lineageTag": "41734bd8-df1a-4eb6-9e53-2a48aa88364f"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Budget-5dfd0575-fa9e-44b9-b0e1-25144c703ca4",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"H:\\SQLBI\\Conferences\\User Group Sessions\\Budgeting with Power BI\\Budget.xlsx\"), null, true),",
+                "    Budget_Table = Source{[Item=\"Budget\",Kind=\"Table\"]}[Data],",
+                "    #\"Unpivoted Columns\" = Table.UnpivotOtherColumns(Budget_Table, {\"CountryRegion\", \"Brand\"}, \"Attribute\", \"Value\"),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Unpivoted Columns\",{{\"Attribute\", \"Scenario\"}, {\"Value\", \"Budget\"}}),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Renamed Columns\",{{\"CountryRegion\", type text}, {\"Brand\", type text}, {\"Budget\", Int64.Type}}),",
+                "    #\"Added Custom\" = Table.AddColumn(#\"Changed Type\", \"Scenario Sort\", each if [Scenario] = \"Low\" then 1 else if [Scenario] = \"Medium\" then 2 else 3),",
+                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Added Custom\",{\"Scenario Sort\"})",
+                "in",
+                "    #\"Removed Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "CountryRegion",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "ffbc6587993e4f3dbeb0165e008bec25"
+          }
+        ],
+        "columns": [
+          {
+            "name": "CountryRegion",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "d4ca3c1a-b26b-4062-b559-663912b02c4e",
+            "sourceColumn": "Customer[CountryRegion]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "d124d533-e594-4db6-aba3-8108a3bb8751",
+        "partitions": [
+          {
+            "name": "CountryRegion-88efce81-9c60-4279-b8df-616681743939",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "DISTINCT(",
+                "    ALLNOBLANKROW(",
+                "    Customer[CountryRegion]",
+                "    )",
+                "    )"
+              ],
+              "type": "calculated"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

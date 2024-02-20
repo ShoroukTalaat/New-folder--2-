@@ -1,0 +1,94 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 469.242162625648,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 13.969000000000108,
+            "y": 231.36199999999997
+          },
+          "nodeIndex": "Sales",
+          "size": {
+            "height": 293,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 820.54945696946356,
+            "y": 267.96618122997444
+          },
+          "nodeIndex": "Budget",
+          "size": {
+            "height": 245,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 389.92,
+            "y": 0
+          },
+          "nodeIndex": "Customer",
+          "size": {
+            "height": 257.14,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 389.59443943064525,
+            "y": 275.783020688016
+          },
+          "nodeIndex": "Date",
+          "size": {
+            "height": 245,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 388.7132187188605,
+            "y": 546.05228078290827
+          },
+          "nodeIndex": "Product",
+          "size": {
+            "height": 293,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1216.7,
+            "y": 0
+          },
+          "nodeIndex": "CountryRegion",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 88.02802606514318,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}
