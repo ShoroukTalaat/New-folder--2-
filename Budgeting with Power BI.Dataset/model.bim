@@ -813,6 +813,18 @@
             "expression": "CALCULATE( [Sales Amount], 'Date'[Calendar Year] = \"CY 2009\" )",
             "formatString": "#,0.00",
             "lineageTag": "9dfe2a43-85cc-40e7-b54e-daf9d92ebac4"
+          },
+          {
+            "name": "Measure",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": "Sales[Sales Amount]",
+            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+            "lineageTag": "adbd7fe6-62d0-452b-a212-4f9e02b7479b"
           }
         ],
         "partitions": [
